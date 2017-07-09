@@ -10,19 +10,45 @@
         <link rel="stylesheet" href="./templet/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="./templet/main.css">
         <link rel="shortcut icon" href="diting.jpg">
-        <script type="text/javascript">
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "//hm.baidu.com/hm.js?56bbdac92d4afc73d0374fd965909eed";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-       </script>
-<style>
-.gotbtn{display: block;width: 310px;height: 50px;background: #F39E31;color: #fff;font-size: 22px;margin: 0 auto 50px;line-height: 50px;text-align: center;}
-.gotbtn:hover{background: #DF7F04;}
-</style>
+		
+        <script src="lib/jquery-3.1.0.min.js"></script>
+		<!-- for table-->
+
+		<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+		<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+		<style rel="stylesheet">
+
+			 .title
+
+			 {
+
+			  font-size:20px;
+
+			  margin-top: 30px;
+
+			  margin-bottom: 20px;
+
+			  font-family: Georgia;
+
+
+
+
+
+			 }
+
+			 .subtitle, .notation
+
+			 {font-family: Georgia;}
+
+			 .notation{margin-bottom: 10px;}
+
+			 </style>
 
 </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -30,20 +56,17 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
+                    
                       <a class="brand" tabindex="-1" href="index.html">SheepMirror</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a tabindex="-1" href="index.html">Home</a></li>
-                            <li><a tabindex="-1" href="bidanalysis.html">BidAnalysis</a></li>
-							<li><a tabindex="-1" href="design.html">SolutionDesign</a></li>
-							<li><a tabindex="-1" href="solution.html">CurrentSolution</a></li>
-                            <li><a tabindex="-1" href="download_contact.html">Contact</a></li>
-                        </ul>
+								
+								<li><a tabindex="-1" href="bidanalysis.html">BidAnalysis</a></li>
+								<li><a tabindex="-1" href="solution.html">ProductionDemo</a></li>
+								<li><a tabindex="-1" href="document.html">Document</a></li>
+								
+								<li><a tabindex="-1" href="download_contact.html">Contact</a></li>
+							</ul>
                         
                     </div><!--/.nav-collapse -->
                 </div>
@@ -51,22 +74,116 @@
         </div>
 
         <div class="container">
-		<div style="width: 1100px;height:60px;"></div>
-          <div class="container">
-		  
-          <div  style="width:100%;height:40%;background-color:white;"> 
-			<h1> Model Introduction</h1>
-			<img src="./data/model.png">		
-         </div>
-		 
-		 <div  style="width:100%;height:60%;background-color:white;"> 
-				<h1>Production Demo</h1>
-				<a class="gotbtn" href="flow.html"> 查看当前首标</a>
-         </div>
-		 
-        </div>
+			  <div style="width: 1100px;height:10px;"></div>
+				<div id="part4">
+
+						<div id="P4_news" style="width: 1200px;height:500px;">
+
+							<div class="title"> DataStream</div>
+
+							<div class="notation"><h2>拍拍贷散标首标数据</h2></div>
+							<hr>
+							<h3>根据算法模型对首标进行判断，信用系数越高，越推荐</h3>
+							<p id="demo"></p>
+							
+						</div>
+						
+						<h4><a href= "document.html">具体模型点击</a></h4>
+			   </div>
+			   <hr> </hr>
+			   
+			   <h3>为您推荐的标</h3>
+			   
+			   <table id="Bid_List" class="display" cellspacing="0" width="100%">
+
+				<thead>
+
+				<tr>
+
+					<th>ListingId</th>
+
+					<th>Title</th>
+
+					<th>CreditCode</th>
+
+					<th>Amount</th>
+
+					<th>Rate</th>
+
+					<th>Months</th>
+
+					<th>RemainFunding</th>
+					
+					<th>Buy</th>
+				</tr>
+			    <td> 56390172 </td>
+				<td> 手机app用户的第1次闪电借款 </td>
+				<td> B </td>
+				<td> 12000 </td>
+				<td> 18 </td>
+				<td> 12 </td>
+				<td> 2404</td>
+				<td> <a href=http://invest.ppdai.com/loan/info?id=56389142> 点击购买 </a> </td>
         </div> <!-- /container -->
 		
-		
+		<script>
+			var obj, dbParam, xmlhttp, myObj, x, txt = "";
+			obj = {};
+			dbParam = JSON.stringify(obj);
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					alert(this.responseText);
+					myObj = JSON.parse(this.responseText);
+					//myObj = this.responseText;
+					
+					//alert("123");
+					txt += "<table class='display' cellspacing='0' width='100%'>"
+					txt += "<thead>" + "<tr>" + "<th>ListingId" + "</th><th>Title" + "</th><th>CreditCode" + "</th><th>Amount" 
+					        + "</th><th>Rate" + "</th><th>Months" + "</th><th>RemainFunding" + "</th><th>ModelCredit" + "</th><th>Buy" + 
+							"</th></tr>" + "</thead>"
+					
+						
+					for (x in myObj) {
+						txt += "<tr><td>" + myObj[x][0][0] + "</td><td>" + myObj[x][0][1] + "</td><td>" + myObj[x][0][2] 
+						+ "</td><td>" + myObj[x][0][3] + "</td><td>" + myObj[x][0][4] + "</td><td>" + myObj[x][0][5]
+						+ "</td><td>" + myObj[x][0][6] + "</td><td>" + myObj[x][0][7] + "</td><td><a href=http://invest.ppdai.com/loan/info?id=55984058>" + "点击购买" + "</a></td></tr>";
+						
+						txt += "<tr><td>" + myObj[x][1][0] + "</td><td>" + myObj[x][1][1] + "</td><td>" + myObj[x][1][2] 
+						+ "</td><td>" + myObj[x][1][3] + "</td><td>" + myObj[x][1][4] + "</td><td>" + myObj[x][1][5]
+						+ "</td><td>" + myObj[x][1][6] + "</td><td>" + myObj[x][1][7] + "</td><td><a href=http://invest.ppdai.com/loan/info?id=56277233>" + "点击购买" + "</a></td></tr>";
+						
+						txt += "<tr><td>" + myObj[x][2][0] + "</td><td>" + myObj[x][2][1] + "</td><td>" + myObj[x][2][2] 
+						+ "</td><td>" + myObj[x][2][3] + "</td><td>" + myObj[x][2][4] + "</td><td>" + myObj[x][2][5]
+						+ "</td><td>" + myObj[x][2][6] + "</td><td>" + myObj[x][2][7] + "</td><td><a href=http://invest.ppdai.com/loan/info?id=56341631>" + "点击购买" + "</a></td></tr>";
+						
+						txt += "<tr><td>" + myObj[x][3][0] + "</td><td>" + myObj[x][3][1] + "</td><td>" + myObj[x][3][2] 
+						+ "</td><td>" + myObj[x][3][3] + "</td><td>" + myObj[x][3][4] + "</td><td>" + myObj[x][3][5]
+						+ "</td><td>" + myObj[x][3][6] + "</td><td>" + myObj[x][3][7] + "</td><td><a href=http://invest.ppdai.com/loan/info?id=56390172>" + "点击购买" + "</a></td></tr>";
+						
+						txt += "<tr><td>" + myObj[x][4][0] + "</td><td>" + myObj[x][4][1] + "</td><td>" + myObj[x][4][2] 
+						+ "</td><td>" + myObj[x][4][3] + "</td><td>" + myObj[x][4][4] + "</td><td>" + myObj[x][4][5]
+						+ "</td><td>" + myObj[x][4][6] + "</td><td>" + myObj[x][4][7] + "</td><td><a href=http://invest.ppdai.com/loan/info?id=56389142>" + "点击购买" + "</a></td></tr>";
+						
+
+					}
+					txt += "</table>"
+
+					document.getElementById("demo").innerHTML = txt;
+				}
+			};
+			xmlhttp.open("POST", "PHP/bid.php", true);
+			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlhttp.send("x=" + dbParam);
+
+		</script>
+
 	</body>
 </html>
+
+
+
+
+
+
+

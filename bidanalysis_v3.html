@@ -52,40 +52,75 @@ tr:nth-child(even){background-color: #f2f2f2}
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" tabindex="-1" href="index.html">SheepMirror</a>
-                     
+                   
+				   <div class="height:1%">
+                        <ul class="nav" >
+                    <li><a tabindex="-1" tabindex="-1" href="index.html">SheepMirror</a></li>
+					<li><a tabindex="-1" href="bidanalysis.html">BidAnalysis</a></li>
+					<li><a tabindex="-1" href="demo.html">ProductionDemo</a></li>
+					<li><a tabindex="-1" href="document.html">Document</a></li>
+					<!--
+					<a class="brand" tabindex="-1" href="design.html">SolutionDesign</a></li>
+					<a class="brand" tabindex="-1" href="solution.html">CurrentSolution</a></li>
+					-->
+					<li><a tabindex="-1" href="download_contact.html">Contact</a></li>
+						</ul>
+					</div>
                 </div>
             </div>
         </div>
 
         <div class="container">
             <div style="width: 1100px;height:60px;"></div>
-
+		
 		<div style="width:100%; height:650px align:center" >
-			<h1><strong>投标数据分析及可视化</strong></h1>
-            <h3>本页对获取的投标数据进行分析，并以图表的方式展示结果。</h3>		 
-		</div>
-        <hr>
-		<div style="width:100%; height:650px align:center" >
-			<h2><strong>Part I: 投标数据分析</strong></h2>
+			<h2><strong>各类标数量占比情况</strong></h2>
 			<hr>
-            <div class="notation">下表为对投标数据进行分类别统计的结果。
-            </div>
-            <img src="./data/table_overall_summary.jpg" width="500px">
+			<img src="./data/ration.png">
 			<hr>
-            <div class="notation">下图和表格展示了对于首次投标/非首次投标而言，不同还款记录的分布情况。
-            </div>
-            <img src="./data/table_bid_distribution.png" >
-			<img src="./data/fig_bid_distribution.jpg" >
+			<img src="./data/bid.png" >
+		 
 		</div>
 		
+		<div style="width:100%; height:550px">
+			<h2><strong>亏损金额情况</strong></h2>
+			<hr>
+			<div style="overflow-x:auto;">
+			  <table>
+				<tr>
+				  <th>Bid Name</th>
+				  <th>Loss Money（￥）</th>
+				  
+				</tr>
+				<tr>
+				  <td>TotalBid</td>
+				  <td>1453458316</td>
+				  
+				</tr>
+				<tr>
+				  <td>FirstBid</td>
+				  <td>787041669.7</td>
+				  
+				</tr>
+				
+				<tr>
+				  <td>RestBid</td>
+				  <td>686897783.6</td>
+				  
+				</tr>
+			  </table>
+		</div>
+		<hr>
+		<div style="width:100%; height:80px; background-color:black">
+			<p><font size="8" face="arial" color="White">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首标数量占比25%，亏损金额占比50%</font></p>
+		</div>
+		<hr>
 		
 		<div id="part2"> 
         <div style="width: 1200px;height:550px;" >
-            <h2><strong>Part II: LC表可视化分析</strong></h2>
-            <div class="notation"> 本部分展示了关于LC表的部分可视化分析，左图展示了历史正常还款期数，借款金额，借款期限（距离2017-01-01的天数），利率，历史成功借款次数，年龄，
+            <div class="notation"> 下面是关于LC表的可视化分析，其中第一幅图表示的是 历史正常还款期数，借款金额，借款期限（距离2017-01-01的天数），利率，历史成功借款次数，年龄，
             历史逾期还款期数以及初始信用评级的变量关系。其中A，B，C，D，E，F分别表示信用等级。
-            <br>右图展示了LC表中借款人的一些人口基本统计信息</div>
+            <br>右图则是LC表中借款人的一些人口基本统计信息</div>
             <div id="P2_corr" style="width: 650px;height:550px;float:left"></div>
             <div id="P2_user_stat_province" style="width: 500px;height:350px;float:left"></div>           
             <div id="P2_user_stat_gender" style="width: 300px;height:200px;float:right"></div>
@@ -93,12 +128,12 @@ tr:nth-child(even){background-color: #f2f2f2}
         </div>
         <div style="width: 1200px;height:500px;" >
             <div class="notation" style="width: 1200px;height:100px;float:left">
-             下图展示了LC表中，不同信用等级的累积比例，可以看出A，F等级都是比较少的。
+             第一幅表示LC表中，不同信用等级的累积比例，可以看出A，F等级都是比较少的。
             </div>
             <div id="P2_user_stat_possess" style="width: 600px;height:400px;float:left"></div>
             <div id="P2_user_stat_count" style="width: 600px;height:400px;float:left"></div>
         </div>
-
+  
     </div>
             
 </div>
